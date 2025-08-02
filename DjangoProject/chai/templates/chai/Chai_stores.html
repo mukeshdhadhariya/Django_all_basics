@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-900 text-white p-6">
+    <div class="max-w-3xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-300">Welcome to Chai Store</h2>
+
+        <form method="POST" class="space-y-4 ">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-700 text-black font-semibold py-2 px-4 rounded transition">
+                Submit
+            </button>
+        </form>
+
+        {% if stores %}
+        <div class="mt-8">
+            <h3 class="text-xl font-semibold border-b border-gray-700 pb-2 mb-4 text-green-300">Available Stores:</h3>
+            <ul class="space-y-3">
+                {% for store in stores %}
+                    <li class="bg-gray-700 p-4 rounded-md shadow-md">
+                        <span class="block font-semibold text-lg">{{ store.name }}</span>
+                        <span class="text-gray-300 text-sm">📍 {{ store.location }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
