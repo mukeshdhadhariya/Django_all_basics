@@ -22,3 +22,4 @@ class chaiCertificateAdmin(admin.ModelAdmin):
 admin.site.register(ChaiVarity,ChaiVarityadmin)
 admin.site.register(Store,Storeadmin)
 admin.site.register(chaiCertificate,chaiCertificateAdmin)
+# already buidl
